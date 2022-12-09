@@ -5,11 +5,21 @@ import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoItem } from "../TodoItem";
 import { TodoList } from "../TodoList";
 import { TodoContext } from '../TodoContext';
+import { Modal } from '../Modal';
 
 function AppUI(){
 
     // Podemos agarrar los valores del estado del contexto y usarlos después
-    const {error, loading, searchValue, searchedTodos, completeTodo, deleteTodo} = React.useContext(TodoContext);
+    const {
+        error,
+        loading,
+        searchValue,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        openModal,
+        setOpenModal,
+    } = React.useContext(TodoContext);
 
     return (
         // El React.Fragment es una especie de bundle que le sirve a React para sus cálculos internos
@@ -34,7 +44,15 @@ function AppUI(){
                 ))}
             </TodoList>
 
-            <CreateTodoButton />
+            {!!openModal && (
+                <Modal>
+                    <p>TELETRANSPORTACION</p>
+                </Modal>
+            )}
+
+            <CreateTodoButton
+                setOpenModal={setOpenModal}
+            />
         </React.Fragment>
     );
 }
