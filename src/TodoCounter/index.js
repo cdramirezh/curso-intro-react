@@ -1,4 +1,5 @@
 import React from "react";
+import { TodoContext } from "../TodoContext";
 import './TodoCounter.css';
 
 // Esta es una forma de usar estilos en React. Se pueden hacer estilos inline
@@ -7,10 +8,11 @@ import './TodoCounter.css';
 //     backgroundColor: 'yellow',
 // };
 
-function TodoCounter({total, completed}) {
+function TodoCounter() {
+    const {totalTodos, completedTodos} = React.useContext(TodoContext)
     return (
         <h2 className="TodoCounter">
-            Has completado {completed} de {total} TODOs
+            Has completado {completedTodos} de {totalTodos} TODOs
         </h2>
     )
 }
