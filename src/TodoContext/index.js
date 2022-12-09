@@ -29,7 +29,16 @@ function TodoProvider(props) {
       return todoText.includes(searchText);
     }) 
   }
-    
+  
+  const addTodo = (text) => {
+    const newTodos = [...todos];
+    newTodos.push({
+      text: text,
+      completed: false,
+    })
+    saveTodos(newTodos)
+  }
+
   const completeTodo = (text) => {
     const todoIndex = todos.findIndex(todo => todo.text === text );
     // State cannot be modified directly, it needs to use setState
@@ -58,6 +67,7 @@ function TodoProvider(props) {
         searchValue,
         setSearchValue,
         searchedTodos,
+        addTodo,
         completeTodo,
         deleteTodo,
         openModal,
