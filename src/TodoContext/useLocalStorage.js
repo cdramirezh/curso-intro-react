@@ -31,7 +31,7 @@ function useLocalStorage(itemName, initialValue) {
           setErr(error);
         }
         
-      }, 750);
+      }, 4000);
     });
   
     const saveItem = (newTodos) => {
