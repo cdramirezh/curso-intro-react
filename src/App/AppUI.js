@@ -7,10 +7,10 @@ import { TodoList } from "../TodoList";
 import { TodoContext } from '../TodoContext';
 import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
-import { LoadingTodos } from '../LoadingTodos';
-import { TodoError } from '../TodoError';
+import { TodosLoading } from '../TodosLoading';
+import { TodosError } from '../TodosError';
 import { NotFoundTodo } from '../TodoNotFound';
-import { TodoSkeleton } from '../TodoSkeleton';
+import { EmptyTodos } from '../EmptyTodos';
 
 function AppUI(){
 
@@ -33,9 +33,9 @@ function AppUI(){
             <TodoSearch />
 
             <TodoList>
-                {error && <TodoError />}
-                {loading && <LoadingTodos />}
-                {(!loading && !searchedTodos.length && !searchValue.length) && <TodoSkeleton />}
+                {error && <TodosError error={error} />}
+                {loading && <TodosLoading />}
+                {(!loading && !searchedTodos.length && !searchValue.length) && <EmptyTodos />}
                 {(!loading && !searchedTodos.length && searchValue.length) && <NotFoundTodo />}
                 
                 {searchedTodos.map(todo => (

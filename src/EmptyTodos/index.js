@@ -1,9 +1,9 @@
 import React from "react";
 
-function TodoSkeleton () {
+function EmptyTodos () {
     return (
         <p>¡Crea tu primer TODO!</p>
     );
 }
 
-export { TodoSkeleton };
+export { EmptyTodos };
