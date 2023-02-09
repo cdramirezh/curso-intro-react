@@ -1,5 +1,7 @@
 import React from 'react';
 import { TodoHeader } from "../TodoHeader"
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
 import { CreateTodoButton } from "../CreateTodoButton";
 import { TodoItem } from "../TodoItem";
 import { TodoList } from "../TodoList";
@@ -31,12 +33,15 @@ function AppUI() {
     return (
         // El React.Fragment es una especie de bundle que le sirve a React para sus cálculos internos
         <React.Fragment>
-            <TodoHeader
-                totalTodos={totalTodos}
-                completedTodos={completedTodos}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-            />
+            <TodoHeader>
+                <TodoCounter
+                    totalTodos={totalTodos}
+                    completedTodos={completedTodos} />
+                <TodoSearch
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                />
+            </TodoHeader>
             <TodoList>
                 {error && <TodosError error={error} />}
                 {loading && <TodosLoading />}
