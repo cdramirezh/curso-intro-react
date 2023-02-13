@@ -67,6 +67,16 @@ function App() {
           />
         )}
       >
+        {/* Esta vaina de acá abajo es una render function */}
+        {todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
+          />
+        )}
       </TodoList>
 
       {!!openModal && (
