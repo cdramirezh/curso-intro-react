@@ -36,10 +36,11 @@ function App() {
   return (
     // El React.Fragment es una especie de bundle que le sirve a React para sus cálculos internos
     <React.Fragment>
-      <TodoHeader>
+      <TodoHeader loading={loading}>
         <TodoCounter
           totalTodos={totalTodos}
-          completedTodos={completedTodos} />
+          completedTodos={completedTodos}
+        />
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}

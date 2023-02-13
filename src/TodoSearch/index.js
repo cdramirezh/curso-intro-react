@@ -1,6 +1,6 @@
 import "./TodoSearch.css";
 
-function TodoSearch({ searchValue, setSearchValue }) {
+function TodoSearch({ searchValue, setSearchValue, loading }) {
 
     const onSearchValueChange = (event) => {
         // Event es una vaina useful para hacer referencia al evento
@@ -14,6 +14,7 @@ function TodoSearch({ searchValue, setSearchValue }) {
             className="TodoSearch"
             placeholder={searchValue}
             onChange={onSearchValueChange}
+            disabled={loading}
         />
     )
 }
