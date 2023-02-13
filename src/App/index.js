@@ -10,7 +10,7 @@ import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
 import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
-import { NotFoundTodo } from '../TodoNotFound';
+import { NotFoundTodo } from '../NotFoundTodo';
 import { EmptyTodos } from '../EmptyTodos';
 // import './App.css';
 
@@ -50,10 +50,13 @@ function App() {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        searchValue={searchValue}
 
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
+        onEmptySearchResults={(searchValue) => <NotFoundTodo searchValue={searchValue} />}
         render={todo => (
           <TodoItem
             key={todo.text}
