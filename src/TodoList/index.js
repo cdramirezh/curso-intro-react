@@ -14,7 +14,7 @@ function TodoList(props) {
             <ul>
                 {/* {props.searchedTodos.map(todo => props.render(todo))} */}
                 {/* La siguiente línea es equivalente a la anterior, pasarle la función solita funciona, el map se encarga de usarla en cada elemento y mapear lo que devuelve */}
-                {!props.loading && props.searchedTodos.map(renderFunction)}
+                {(!props.loading && !props.error) && props.searchedTodos.map(renderFunction)}
             </ul>
         </section>
     )
