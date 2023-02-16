@@ -3,6 +3,7 @@ import React from "react";
 function useLocalStorage(itemName, initialValue) {
 
   // Estado inicial de los objetos devueltos por la función
+  const [synchronizedItem, setSynchronizedItem] = React.useState(true);
   const [error, setErr] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
@@ -31,8 +32,8 @@ function useLocalStorage(itemName, initialValue) {
         setErr(error);
       }
 
-    }, 500);
-  }, []);
+    }, 1500);
+  }, [synchronizedItem]);
   // Cuando no le enviamos el parámetro 'deps', y tiene dentro un setTimeout,
   // el effect se ejecuta cada vez que el Timeout se ejecute,
   // muy malo para el performance
@@ -48,10 +49,16 @@ function useLocalStorage(itemName, initialValue) {
 
   };
 
+  const synchronizeItem = () => {
+    setLoading(true);
+    // setSynchronizedItem(false);
+    setSynchronizedItem((current) => !current);
+  }
+
   // The hook returns pointers to those objects.
   // First, those objects' values are the initial values defined at the begining of the hook
   // When the fake API call gets a response, the object's values are updated
-  return { item, saveItem, loading, error }
+  return { item, saveItem, loading, error, synchronizeItem }
 
 }
 

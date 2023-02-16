@@ -8,6 +8,7 @@ function useTodos(props) {
     saveItem: saveTodos,
     loading,
     error,
+    synchronizeItem: synchronizeTodos,
   } = useLocalStorage('TODOS_V1', []);
 
   // Los React Hooks son funciones de React que empiezan por 'use
@@ -68,6 +69,7 @@ function useTodos(props) {
     deleteTodo,
     openModal,
     setOpenModal,
+    synchronizeTodos,
   }
 
 }
