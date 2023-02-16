@@ -12,6 +12,7 @@ import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { NotFoundTodo } from '../NotFoundTodo';
 import { EmptyTodos } from '../EmptyTodos';
+import { ChangeAlertWithStorageListener } from "../ChangeAlert";
 // import './App.css';
 
 // localStorage.setItem('TODOS_V1',JSON.stringify([{text: 'Cortar cebolla', completed: true},{text: 'Tomar el curso de React', completed: false},{text: 'Llorar con la llorona', completed: true},{text: 'Sing lalala', completed: false},]))
@@ -92,6 +93,7 @@ function App() {
       <CreateTodoButton
         setOpenModal={setOpenModal}
       />
+      <ChangeAlertWithStorageListener />
     </React.Fragment>
   );
 }
